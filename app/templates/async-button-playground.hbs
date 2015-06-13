@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div>
+      Actions 
+      {{#if actionsArray.length}}
+        {{#async-button action="clearArray" param1=actionsArray class="btn-danger"}}Clear{{/async-button}}
+      {{/if}}
+    </div>
+
+    {{#each action in actionsArray}}
+      <div>{{action.text}}</div>
+    {{/each}}
+    
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-xs-12">
+    Async button should wait 1 second to finish the action1 to be able to be clicked again, param1 should be 'PARAM1' and param2 should be a bound value in controller "PARAM BOUND"
+  </div>
+  <div class="col-xs-10 col-xs-offset-1">
+      {{#async-button action="action1" class="btn-default" param1="PARAM1" param2=param2}}Test with 1 second waiting{{/async-button}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    Async button should no wait to finish the action2, no params
+  </div>
+  <div class="col-xs-10 col-xs-offset-1">
+      {{#async-button action="action2" class="btn-primary"}}Test with no waiting{{/async-button}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    Async button should no wait the timeout to cancel the action3
+  </div>
+  <div class="col-xs-10 col-xs-offset-1">
+      {{#async-button action="action3" param1=param3 timeout=5000 timeoutAction="action3Timeout" class="btn-danger"}}Test with timeout{{/async-button}}
+  </div>
+</div>

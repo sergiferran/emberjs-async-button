@@ -1,7 +1,22 @@
 # Emberjs-async-button
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+With this component you'll be able to avoid multiple clicks in one button or link, until the action is finished or timeout is triggered
+
+## Sample Code
+
+`{{#async-button action="action1" timeout=5000 class="btn-default" param1="PARAM1" param2=parambound}}Call action1{{/async-button}}`
+
+This code will call an action in the controller called `action1` with the next signature:
+
+`action1: function(param1, param2, resolve)` where:
+
+* `param1` value will be "PARAM1"
+* `param2` value will be the bound value in the controller property `parambound`
+* `resolve` is a callback function to indicate the action is finished. It is useful when you are doing async function such as `store.save` or similiar.
+
+60 seconds is the default timeout but you can overrite with `timeout` property, and you can set an action for timeout with the property `timeoutAction`
+
+### Currently I'm using bootstrap to styles, but is not need it if you want, you can apply the style you want
 
 ## Prerequisites
 
@@ -24,30 +39,3 @@ You will need the following things properly installed on your computer.
 
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-

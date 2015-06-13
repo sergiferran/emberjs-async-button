@@ -1,0 +1,43 @@
+@import 'bootstrap';
+
+.spinner-anim() {
+  0% {
+    .rotate(0deg);
+  }
+  100% { 
+    .rotate(359deg);
+  }
+}
+
+@-webkit-keyframes spinneranim {.spinner-anim;}
+@-moz-keyframes spinneranim {.spinner-anim;}
+@-ms-keyframes spinneranim {.spinner-anim;}
+@-o-keyframes spinneranim {.spinner-anim;}
+@keyframes spinneranim {.spinner-anim;}
+
+.async-button {
+  .async-button-container{
+    position: relative;
+
+      .icon-spinner {
+        position: absolute;
+        left: ~'calc(50% - 8px)';
+        padding: 0.2em 0;
+        &:before {
+          content: url('/images/spinner.png');
+          position: absolute;
+          .animation(spinneranim 1s infinite linear);
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+  
+  &.in-progress{
+    &, &:active, &:hover, &:focus, &:visited {
+      .async-button-text{
+        color: transparent;
+      }
+    }
+}
