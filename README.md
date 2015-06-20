@@ -2,6 +2,8 @@
 
 With this component you'll be able to avoid multiple clicks in one button or link, until the action is finished or timeout is triggered
 
+[Live Demo](http://sergiferran.webcindario.com/async-button/index.html)
+
 ## Sample Code
 
 `{{#async-button action="action1" timeout=5000 class="btn-default" param1="PARAM1" param2=parambound}}Call action1{{/async-button}}`
